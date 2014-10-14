@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>SecurityEventService</display-name>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>SecurityEventService</servlet-name>
+		<!-- 这个 Servlet 是由 Wink 提供的 -->>
+		<servlet-class>
+			org.apache.wink.server.internal.servlet.RestServlet
+		</servlet-class>
+		<init-param>
+			<param-name>applicationConfigLocation</param-name>
+			<param-value>/WEB-INF/application</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SecurityEventService</servlet-name>
+		<!-- 这个是Servlet对应的path -->
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+</web-app>
