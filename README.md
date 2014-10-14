@@ -62,23 +62,23 @@ class上一定要有个@Path, 指名在URL根地址之后的路径, 如果不需
 这个输出为XML格式:
 
 ````java
-@GET
-@Path("/user")
-@Produces(MediaType.APPLICATION_XML)
-public User getUserInXML() {
-return getUser("unknown");
-}
+	@GET
+	@Path("/user")
+	@Produces(MediaType.APPLICATION_XML)
+	public User getUserInXML() {
+		return getUser("unknown");
+	}
 ````
 
 这个输出为JSON格式:
 
 ````java
-@GET
-@Path("/user")
-@Produces(MediaType.APPLICATION_JSON)
-public User getUserInJSON() {
-     return getUser("unknown");
-}
+	@GET
+	@Path("/user")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUserInJSON() {
+    		return getUser("unknown");
+	}
 ````
 
 	注: 他们调用的可是同一个getUser函数哦.
@@ -96,25 +96,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class User {
 
-private String name = null;
-private int age = 20;
+	private String name = null;
+	private int age = 20;
 
-public String getName() {
-return name;
-}
+	public String getName() {
+		return name;
+	}
 
-public void setName(String name) {
-this.name = name;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-public int getAge() {
-return age;
-}
+	public int getAge() {
+		return age;
+	}
 
-public void setAge(int age) {
-this.age = age;
-}
-
+	public void setAge(int age) {
+		this.age = age;
+	}
 }
 ````
 
@@ -138,8 +137,9 @@ this.age = age;
 
   <servlet>
     <servlet-name > SecurityEventService</servlet-name > 
+    <!--  这个Servlet是Wink提供的  -->
     <servlet-class > 
-       org.apache.wink.server.internal.servlet.RestServlet     //这个Servlet是Wink提供的
+       org.apache.wink.server.internal.servlet.RestServlet
     </servlet-class > 
     <init-param > 
        <param-name > applicationConfigLocation</param-name > 
@@ -149,7 +149,8 @@ this.age = age;
 
   <servlet-mapping > 
     <servlet-name > SecurityEventService</servlet-name > 
-    <url-pattern > /rest/*</url-pattern>                         //这个是Servlet对应的path 
+    <!-- 这个是Servlet对应的path  -->
+    <url-pattern > /rest/*</url-pattern>                        
   </servlet-mapping > 
 </web-app > 
 ````
@@ -170,7 +171,6 @@ Content-Length →132
 Content-Type →application/xml
 Date →Mon, 14 Jul 2014 11:40:01 GMT
 Server →Apache-Coyote/1.1
-
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <user pin="208">
