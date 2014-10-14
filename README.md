@@ -61,7 +61,7 @@ class上一定要有个@Path, 指名在URL根地址之后的路径, 如果不需
 
 这个输出为XML格式:
 
-````
+````java
 @GET
 @Path("/user")
 @Produces(MediaType.APPLICATION_XML)
@@ -72,7 +72,7 @@ return getUser("unknown");
 
 这个输出为JSON格式:
 
-````
+````java
 @GET
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
@@ -83,15 +83,9 @@ public User getUserInJSON() {
 
 	注: 他们调用的可是同一个getUser函数哦.
 
-
-
-
-
-
-
 注意了，要想让 User 同时支持 XML 和 JSON 格式，User 类的定义也有讲究：
 
-````
+````java
 package com.xxxx.service;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -134,7 +128,7 @@ this.age = age;
 
 我们需要先配置下web.xml文件:
 
-````
+````xml
 <web-app>
   <display-name>SecurityEventService</display-name>
  
@@ -171,7 +165,7 @@ OK, 可以运行了.
 
 返回如下:
 
-````
+````xml
 Content-Length →132
 Content-Type →application/xml
 Date →Mon, 14 Jul 2014 11:40:01 GMT
@@ -195,7 +189,7 @@ Accept: application/json
 
 就可以得到JSON格式的内容了:
 
-````
+````json
 Content-Type →application/json
 Date →Mon, 14 Jul 2014 11:11:01 GMT
 Server →Apache-Coyote/1.1
