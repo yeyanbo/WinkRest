@@ -25,6 +25,8 @@ public class SecurityEventService {
 	
 	
 	private User getUser(String name){
+		
+		System.out.print("Create User");
 		User user = new User();
 		user.setName(name);
 		

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<title>RESTful Service Test</title>
+</head>
+<body>
+
+Hello RESTful!
+<br/>
+<br/><br/><br/>
+<div id='user'>
+
+</div>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$.ajax({
+			url: "rest/user",
+			type: "get",
+			dataType: "json",
+			success: function(data){
+				$("#user").append("User:<br/>");
+				$("#user").append("---name:" + data.user.name);
+			}
+		});
+	})
+	
+
+</script>
+
+</body>
+</html>
