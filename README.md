@@ -123,7 +123,7 @@ public class User {
 
 再来看看如何处理 List 对象：
 
-````
+````java
 package com.xxxxx.testplat.service;
 
 import java.util.List;
