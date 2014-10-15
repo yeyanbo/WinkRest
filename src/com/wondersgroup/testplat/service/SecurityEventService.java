@@ -1,5 +1,8 @@
 package com.wondersgroup.testplat.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -21,6 +24,21 @@ public class SecurityEventService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public User getUserInJSON() {
 		return getUser("unknown");
+	}
+	
+	@GET
+	@Path("/users")
+	@Produces(MediaType.APPLICATION_JSON)
+	public MyResult getUserList() {
+		
+		MyResult result = new MyResult();
+		List<User> users= new ArrayList<User>();
+		
+		users.add(getUser("zzzz"));
+		users.add(getUser("xxxx"));
+		result.setUsers(users);
+		
+		return result;
 	}
 	
 	

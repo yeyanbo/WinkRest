@@ -121,6 +121,48 @@ public class User {
 看到了吗？User 类要用 JAXB 注解进行标记哟，不要忘记了！
 
 
+再来看看如何处理 List 对象：
+
+````
+package com.xxxxx.testplat.service;
+
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class MyResult {
+
+	private String status = "PASS";
+
+	@XmlElementWrapper(name = "userlist")
+	@XmlElement(name = "user")
+	private List<User> users;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+}
+````
+
 先看看如何获取这个资源
 
 我们假设URL根地址为: ``http://localhost:8080/SecurityEventService``
