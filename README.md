@@ -203,3 +203,18 @@ Transfer-Encoding →chunked
     }
 }
 ````
+
+
+前端页面通过 Jquery AJAX 调用：
+
+````javascript
+$.ajax({
+     url: "rest/user",
+     type: "get",
+     dataType: "json",
+     success: function(data){
+          $("#user").append("User:<br/>");
+          $("#user").append("---name:" + data.user.name);
+     }
+});
+````
