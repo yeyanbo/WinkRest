@@ -13,9 +13,15 @@
 			org.apache.wink.server.internal.servlet.RestServlet
 		</servlet-class>
 		<init-param>
+    		<param-name>javax.ws.rs.Application</param-name>
+    		<param-value>com.wondersgroup.testplat.service.TPWinkApplication</param-value>
+  		</init-param>
+		<!-- 
+		<init-param>
 			<param-name>applicationConfigLocation</param-name>
 			<param-value>/WEB-INF/application</param-value>
 		</init-param>
+		 -->
 	</servlet>
 
 	<servlet-mapping>

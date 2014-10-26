@@ -28,17 +28,15 @@ public class SecurityEventService {
 	
 	@GET
 	@Path("/users")
-	@Produces(MediaType.APPLICATION_JSON)
-	public MyResult getUserList() {
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	public List<User> getUserList() {
 		
-		MyResult result = new MyResult();
 		List<User> users= new ArrayList<User>();
 		
 		users.add(getUser("zzzz"));
 		users.add(getUser("xxxx"));
-		result.setUsers(users);
 		
-		return result;
+		return users;
 	}
 	
 	
